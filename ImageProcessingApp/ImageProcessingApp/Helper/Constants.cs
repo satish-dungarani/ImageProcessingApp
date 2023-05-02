@@ -1,12 +1,43 @@
-﻿namespace ImageProcessingApp
+﻿using System.Net.Http;
+using System;
+using System.Threading.Tasks;
+
+namespace ImageProcessingApp
 {
-    class Constants
+    public static class Constants
     {
-        public const string GitHubReposEndpoint = "https://api.github.com/orgs/dotnet/repos";
-        //public static string RestUrl = "http://10.0.2.2:13418/api/todoitems/{0}";
-        //public static string RestUrl = "http://172.27.102.1:45455/api/";
-        //public static string RestUrl = "http://100.74.81.147:8081/api/";
-        //public static string RestUrl = "https://192.168.224.1:4431/api/";
-        public static string RestUrl = "http://100.74.81.147:8011/api/";
+
+        /// <summary>
+        /// For Dev mode and IIS host mode Rest URL will served 
+        /// </summary>
+#if DEBUG
+        public static string RestUrl = "https://localhost:7020/api/";
+#else
+    public static string RestUrl = "http://100.74.81.147:8011/api/";
+#endif
+
+
+        /// <summary>
+        /// Only for Development purpose
+        /// </summary>
+        public static string Email = "er.satish674@gmail.com";
+        public static string Password = "local@123";
+
+        /// <summary>
+        /// Generate Token 
+        /// </summary>
+        /// <param name="jsonBody"></param>
+        /// <returns></returns>
+        public static async Task<string> GetTokenAsync(string jsonBody)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, RestUrl + "Token");
+            var content = new StringContent(jsonBody, null, "application/json");
+            request.Content = content;
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync();
+        }
+
     }
 }

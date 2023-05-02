@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ImageProcessingApp.Model;
+using ImageProcessingApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,13 @@ namespace ImageProcessingApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
-        public ProfilePage()
+        private readonly UserViewModel user;
+        public ProfilePage(UserViewModel user)
         {
             InitializeComponent();
+
+            // Set the binding context of the page to the user view model
+            BindingContext = user;
         }
     }
 }

@@ -27,7 +27,13 @@ namespace ImageProcessingApp
         {
             //load the todos page
             Console.Out.WriteLine("Register clicked");
-            await Navigation.PushModalAsync(page: new NavigationPage(new RegisterPage(new UserService())));
+            await Navigation.PushModalAsync(page: new NavigationPage(new RegisterPage()));
+        }
+        async void onHomePageClicked(object sender, EventArgs e)
+        {
+            //load the todos page
+            Console.Out.WriteLine("Home clicked");
+            await Navigation.PushModalAsync(page: new NavigationPage(new HomePage()));
         }
     }
 }

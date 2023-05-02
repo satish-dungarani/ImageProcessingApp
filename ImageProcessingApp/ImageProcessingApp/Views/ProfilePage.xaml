@@ -3,10 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ImageProcessingApp.Views.ProfilePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10">
+            <Image Source="{Binding ProfilePictureUrl}" WidthRequest="100" HeightRequest="100" HorizontalOptions="CenterAndExpand" Margin="0,10,0,20" />
+            <Label Text="{Binding Firstname}" FontSize="Large" FontAttributes="Bold" />
+            <Label Text="{Binding Lastname}" FontSize="Large" FontAttributes="Bold" />
+            <Label Text="{Binding Email}" FontSize="Medium" Margin="0,10,0,0" />
+            <Label Text="{Binding DOB, StringFormat='{0:MM/dd/yyyy}'}" FontSize="Medium" Margin="0,10,0,0" />
+            <Label Text="{Binding Gender}" FontSize="Medium" Margin="0,10,0,0" />
+            <Label Text="{Binding IsActive, StringFormat='Is Active: {0}'}" FontSize="Medium" Margin="0,10,0,0" />
+            <Label Text="{Binding IsAdmin, StringFormat='Is Admin: {0}'}" FontSize="Medium" Margin="0,10,0,0" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

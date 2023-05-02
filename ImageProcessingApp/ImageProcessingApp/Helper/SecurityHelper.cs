@@ -6,8 +6,15 @@ namespace ImageProcessingApp
 {
     public class SecurityHelper
     {
+        // Security Key Setup here or one can set in appsetting config too
         private const string SecurityKey = "951%m@E#e(n+X!a&H|^t@(*159";
 
+
+        /// <summary>
+        /// Encryption Method for any sensitive data
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
         public static string Encrypt(string plainText)
         {
             byte[] toEncryptedArray = Encoding.UTF8.GetBytes(plainText);
@@ -26,6 +33,11 @@ namespace ImageProcessingApp
             return Convert.ToBase64String(resultArray, 0, resultArray.Length);
         }
 
+        /// <summary>
+        /// Decryption Method for any sensitive data
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
         public static string Decrypt(string cipherText)
         {
             byte[] toDecryptedArray = Convert.FromBase64String(cipherText);

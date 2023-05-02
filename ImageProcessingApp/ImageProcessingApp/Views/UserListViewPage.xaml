@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ImageProcessingApp.Views.UserListViewPage">
+
+    <StackLayout>
+        <ListView x:Name="UserListView"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding users}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10">
+                            <Label Text="{Binding Firstname}" 
+                                   FontAttributes="Bold" 
+                                   FontSize="Medium"/>
+                            <Label Text="{Binding Lastname}" 
+                                   FontAttributes="Bold" 
+                                   FontSize="Medium"/>
+                            <Image Source="{Binding ProfilePictureUrl}" VerticalOptions="Center" WidthRequest="50" HeightRequest="50" />
+                            <Label Text="{Binding Email}" 
+                                   FontSize="Small"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Xamarin.Essentials;
 
 namespace ImageProcessingApp.Model
 {
@@ -42,4 +43,11 @@ namespace ImageProcessingApp.Model
         [DisplayName("Profile Picture URL")]
         public string ProfilePictureUrl { get; set; }
     }
+
+    public class SignInModel
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+
 }
