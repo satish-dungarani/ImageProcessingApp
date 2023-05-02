@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ImageProcessingApp.Views.SigninPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+
+            <!-- Username Entry -->
+            <Entry x:Name="UsernameEntry"
+               Placeholder="Username"
+               Keyboard="Email"
+               Text="{Binding Username}" />
+
+            <!-- Password Entry -->
+            <Entry x:Name="PasswordEntry"
+               Placeholder="Password"
+               IsPassword="True"
+               Text="{Binding Password}" />
+
+            <!-- Sign In Button -->
+            <!--<Button x:Name="SignInButton"
+                Text="Sign In"
+                Command="{Binding SignInCommand}" />-->
+            <Button Text="Sign In"
+                Clicked="OnSaveButtonClicked" />
+            <!-- Registration Button -->
+            <!--<Button x:Name="RegisterButton"
+                Text="Register"
+                Command="{Binding RegisterCommand}" />-->
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
